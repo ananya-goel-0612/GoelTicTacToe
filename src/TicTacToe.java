@@ -12,8 +12,7 @@
 
 import java.util.Scanner;
 
-public class TicTacToe
-{
+public class TicTacToe {
     /** Board Markers **/
     public static final String X_MARKER = "X";
     public static final String O_MARKER = "O";
@@ -35,6 +34,7 @@ public class TicTacToe
     private Square[][] board;
     private boolean isGameOver;
 
+    private TicTacToeViewer window;
     /**
      * Constructor which initialized the board with BLANKs.
      * The winner is also initialized to BLANK.
@@ -46,10 +46,11 @@ public class TicTacToe
         this.board = new Square[3][3];
         for(int row = 0; row < this.board.length; row++) {
             for(int col = 0; col< this.board[row].length; col++) {
-                this.board[row][col] = new Square(row, col);
+                this.board[row][col] = new Square(row, col, window);
             }
         }
 
+        window = new TicTacToeViewer(board);
         // Initialize winning stats variables
         this.isGameOver = false;
         this.turn = 0;
