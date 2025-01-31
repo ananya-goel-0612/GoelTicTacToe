@@ -24,28 +24,33 @@ public class TicTacToeViewer extends JFrame{
         this.setVisible(true);
     }
 
+    public Image[] getImages() {
+        return images;
+    }
+
     public void paint(Graphics g) {
-        super.paint(g);
-
-        g.setColor(Color.WHITE);
+        g.setColor(Color.white);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        g.setColor(Color.black);
 
-        g.setColor(Color.BLACK);
         for (int i = 0; i < 3; i++) {
-            g.drawString(String.valueOf(i), 100 + i * 100, 45);
-            g.drawString(String.valueOf(i), 20, 100 + i * 100);
-        }
+            g.drawString(Integer.toString(i), (i + 1) * 50 + 120, 130);
+            g.drawString(Integer.toString(i), 130, (i + 1) * 50 + 120);
 
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                board[i][j].draw(g);
+            for (int j = 0; j < 3; j++) {
+                game.getBoard()[i][j].draw(g);
             }
         }
 
         if (game.getGameOver()) {
-            g.setColor(Color.RED);
             g.setFont(new Font("Arial", Font.BOLD, 20));
-            g.drawString(game.getWinner() + " Wins!", WINDOW_WIDTH / 2 - 50, WINDOW_HEIGHT - 50);
+
+            if (game.checkTie()) {
+                g.drawString("It's a Tie", 140, 400);
+            }
+            else {
+                g.drawString(game.getWinner() + " WINS", 140, 400);
+            }
         }
 
     }
