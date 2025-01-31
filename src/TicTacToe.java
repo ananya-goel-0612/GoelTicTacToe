@@ -50,7 +50,7 @@ public class TicTacToe {
             }
         }
 
-        window = new TicTacToeViewer(board);
+        window = new TicTacToeViewer(this);
         // Initialize winning stats variables
         this.isGameOver = false;
         this.turn = 0;

@@ -69,22 +69,25 @@ public class Square {
     }
 
     public void draw(Graphics g) {
-        g.drawRect(FIRST_X + FIRST_X * row, col * FIRST_Y + FIRST_Y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
+        int x = FIRST_X + BOX_SIDE_LENGTH * col;
+        int y = FIRST_Y + BOX_SIDE_LENGTH * row;
+
+        g.drawRect(x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
 
         if (this.isWinningSquare) {
             g.setColor(Color.green);
-            g.fillRect(FIRST_X + FIRST_X * row, col * FIRST_Y + FIRST_Y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
+            g.fillRect(x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
         }
 
         Image image = null;
         if (this.marker.equals("X")) {
             image = new ImageIcon("Resources/X.png").getImage();
-        }
-        else if (this.marker.equals("O")) {
+        } else if (this.marker.equals("O")) {
             image = new ImageIcon("Resources/O.png").getImage();
         }
 
-        g.drawImage(image, FIRST_X + FIRST_X * row, col * FIRST_Y + FIRST_Y, window);
-
+        if (image != null) {
+            g.drawImage(image, x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH, window);
+        }
     }
 }
