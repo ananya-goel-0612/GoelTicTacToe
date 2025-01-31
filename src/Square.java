@@ -25,6 +25,9 @@ public class Square {
     private Image X;
     private Image O;
 
+    private int BOX_LENGTH;
+    private int BOX_WIDTH;
+
     /**
      * Constructor to initialize one Square of the
      * TicTacToe board
@@ -35,6 +38,9 @@ public class Square {
         this.row = row;
         this.col = col;
         this.window = window;
+
+        BOX_LENGTH = (col + 1) * 50 + 100;
+        BOX_WIDTH = (row + 1) * 50 + 100;
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
@@ -72,19 +78,19 @@ public class Square {
     }
 
     public void draw(Graphics g) {
-        g.drawRect((col + 1) * 50 + 100, (row + 1) * 50 + 100, 50,50);
+        g.drawRect(BOX_LENGTH, BOX_WIDTH, 50,50);
 
         if (this.isWinningSquare){
             g.setColor(Color.green);
-            g.fillRect((col + 1) * 50 + 101, (row + 1) * 50 + 101, 49,49);
+            g.fillRect(BOX_LENGTH + 1, BOX_WIDTH + 1, 49,49);
             g.setColor(Color.black);
         }
 
         if (marker.equals("X")){
-            g.drawImage(X,(col + 1) * 50 + 100, (row + 1) * 50 + 100,50,50, window);
+            g.drawImage(X,BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
         else if (marker.equals("O")){
-            g.drawImage(O,(col + 1) * 50 + 100, (row + 1) * 50 + 100,50,50, window);
+            g.drawImage(O,BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
     }
 }
