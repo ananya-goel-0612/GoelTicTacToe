@@ -20,10 +20,10 @@ public class Square {
     private int col;
     private boolean isWinningSquare;
 
-    private final int FIRST_X = 50;
-    private final int FIRST_Y = 50;
-    private final int BOX_SIDE_LENGTH = 100;
+
     private TicTacToeViewer window;
+    private Image X;
+    private Image O;
 
     /**
      * Constructor to initialize one Square of the
@@ -38,6 +38,9 @@ public class Square {
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
+
+        X = new ImageIcon("Resources/X.png").getImage();
+        O = new ImageIcon("Resources/O.png").getImage();
     }
 
     /******************** Getters and Setters ********************/
@@ -69,25 +72,19 @@ public class Square {
     }
 
     public void draw(Graphics g) {
-        int x = FIRST_X + BOX_SIDE_LENGTH * col;
-        int y = FIRST_Y + BOX_SIDE_LENGTH * row;
+        g.drawRect((col + 1) * 50 + 100, (row + 1) * 50 + 100, 50,50);
 
-        g.drawRect(x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
-
-        if (this.isWinningSquare) {
+        if (this.isWinningSquare){
             g.setColor(Color.green);
-            g.fillRect(x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH);
+            g.fillRect((col + 1) * 50 + 101, (row + 1) * 50 + 101, 49,49);
+            g.setColor(Color.black);
         }
 
-        Image image = null;
-        if (this.marker.equals("X")) {
-            image = new ImageIcon("Resources/X.png").getImage();
-        } else if (this.marker.equals("O")) {
-            image = new ImageIcon("Resources/O.png").getImage();
+        if (marker.equals("X")){
+            g.drawImage(X,(col + 1) * 50 + 100, (row + 1) * 50 + 100,50,50, window);
         }
-
-        if (image != null) {
-            g.drawImage(image, x, y, BOX_SIDE_LENGTH, BOX_SIDE_LENGTH, window);
+        else if (marker.equals("O")){
+            g.drawImage(O,(col + 1) * 50 + 100, (row + 1) * 50 + 100,50,50, window);
         }
     }
 }

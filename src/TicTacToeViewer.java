@@ -3,16 +3,20 @@ import java.awt.*;
 
 public class TicTacToeViewer extends JFrame{
     // TODO: Complete this class
-    private final int WINDOW_WIDTH = 1000;
-    private final int WINDOW_HEIGHT = 800;
+    private final int WINDOW_WIDTH = 450;
+    private final int WINDOW_HEIGHT = 500;
     private final int TITLE_BAR_HEIGHT = 23;
     private TicTacToe game;
-    private Square[][] board;
+
+    private Image[] images;
 
     public TicTacToeViewer(TicTacToe game) {
         // TODO: Initialize instance variables
         this.game = game;
-        this.board = game.getBoard();
+
+        images = new Image[2];
+        images[0] = new ImageIcon("Resources/X.png").getImage();
+        images[1] = new ImageIcon("Resources/O.png").getImage();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("TicTacToe");
