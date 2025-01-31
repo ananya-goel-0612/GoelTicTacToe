@@ -31,12 +31,14 @@ public class TicTacToeViewer extends JFrame{
     public void paint(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-        g.setColor(Color.black);
+//        g.setColor(Color.black);
 
         for (int i = 0; i < 3; i++) {
+            g.setColor(Color.red);
             g.drawString(Integer.toString(i), (i + 1) * 50 + 120, 130);
             g.drawString(Integer.toString(i), 130, (i + 1) * 50 + 120);
 
+            g.setColor(Color.black);
             for (int j = 0; j < 3; j++) {
                 game.getBoard()[i][j].draw(g);
             }
