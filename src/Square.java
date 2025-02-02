@@ -25,8 +25,8 @@ public class Square {
     private Image X;
     private Image O;
 
-    private int BOX_LENGTH;
-    private int BOX_WIDTH;
+    private final int BOX_LENGTH;
+    private final int BOX_WIDTH;
 
     /**
      * Constructor to initialize one Square of the
@@ -86,10 +86,10 @@ public class Square {
             g.setColor(Color.black);
         }
 
-        if (marker.equals("X")){
+        if (this.marker.equals("X")){
             g.drawImage(X,BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
-        else if (marker.equals("O")){
+        else if (this.marker.equals("O")){
             g.drawImage(O,BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
     }
