@@ -45,7 +45,7 @@ public class TicTacToe {
         // Initialize Squares in the board
         this.board = new Square[3][3];
         for(int row = 0; row < this.board.length; row++) {
-            for(int col = 0; col< this.board[row].length; col++) {
+            for(int col = 0; col < this.board[row].length; col++) {
                 this.board[row][col] = new Square(row, col, window);
             }
         }

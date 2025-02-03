@@ -6,9 +6,9 @@ public class TicTacToeViewer extends JFrame{
     private final int WINDOW_WIDTH = 450;
     private final int WINDOW_HEIGHT = 500;
     private final int TITLE_BAR_HEIGHT = 23;
-    private TicTacToe game;
+    private final TicTacToe game;
 
-    private Image[] images;
+    private final Image[] images;
 
     public TicTacToeViewer(TicTacToe game) {
         // TODO: Initialize instance variables
