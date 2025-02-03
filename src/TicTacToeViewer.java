@@ -32,7 +32,6 @@ public class TicTacToeViewer extends JFrame{
 
         for (int i = 0; i < 3; i++) {
             drawNumbers(g, i);
-
             drawBoard(g, i);
         }
 
