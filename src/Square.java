@@ -39,14 +39,14 @@ public class Square {
         this.col = col;
         this.window = window;
 
-        BOX_LENGTH = (col + 1) * 50 + 100;
-        BOX_WIDTH = (row + 1) * 50 + 100;
+        this.BOX_LENGTH = (col + 1) * 50 + 100;
+        this.BOX_WIDTH = (row + 1) * 50 + 100;
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
 
-        X = new ImageIcon("Resources/X.png").getImage();
-        O = new ImageIcon("Resources/O.png").getImage();
+        this.X = new ImageIcon("Resources/X.png").getImage();
+        this.O = new ImageIcon("Resources/O.png").getImage();
     }
 
     /******************** Getters and Setters ********************/

@@ -12,9 +12,9 @@ public class TicTacToeViewer extends JFrame{
     public TicTacToeViewer(TicTacToe game) {
         this.game = game;
 
-        images = new Image[2];
-        images[0] = new ImageIcon("Resources/X.png").getImage();
-        images[1] = new ImageIcon("Resources/O.png").getImage();
+        this.images = new Image[2];
+        this.images[0] = new ImageIcon("Resources/X.png").getImage();
+        this.images[1] = new ImageIcon("Resources/O.png").getImage();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("TicTacToe");
@@ -23,7 +23,7 @@ public class TicTacToeViewer extends JFrame{
     }
 
     public Image[] getImages() {
-        return images;
+        return this.images;
     }
 
     public void paint(Graphics g) {
