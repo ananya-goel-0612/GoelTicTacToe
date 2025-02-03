@@ -28,6 +28,8 @@ public class Square {
     private final int BOX_LENGTH;
     private final int BOX_WIDTH;
 
+    private Image[] images;
+
     /**
      * Constructor to initialize one Square of the
      * TicTacToe board
@@ -38,15 +40,13 @@ public class Square {
         this.row = row;
         this.col = col;
         this.window = window;
+        this.images = window.getImages();
 
         this.BOX_LENGTH = (col + 1) * 50 + 100;
         this.BOX_WIDTH = (row + 1) * 50 + 100;
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
-
-        this.X = new ImageIcon("Resources/X.png").getImage();
-        this.O = new ImageIcon("Resources/O.png").getImage();
     }
 
     /******************** Getters and Setters ********************/
@@ -87,10 +87,10 @@ public class Square {
         }
 
         if (this.marker.equals("X")){
-            g.drawImage(X,BOX_LENGTH, BOX_WIDTH,50,50, window);
+            g.drawImage(images[0], BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
         else if (this.marker.equals("O")){
-            g.drawImage(O,BOX_LENGTH, BOX_WIDTH,50,50, window);
+            g.drawImage(images[1], BOX_LENGTH, BOX_WIDTH,50,50, window);
         }
     }
 }

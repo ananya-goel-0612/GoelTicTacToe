@@ -29,29 +29,39 @@ public class TicTacToeViewer extends JFrame{
     public void paint(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-//        g.setColor(Color.black);
 
         for (int i = 0; i < 3; i++) {
-            g.setColor(Color.red);
-            g.drawString(Integer.toString(i), (i + 1) * 50 + 120, 130);
-            g.drawString(Integer.toString(i), 130, (i + 1) * 50 + 120);
+            drawNumbers(g, i);
 
-            g.setColor(Color.black);
-            for (int j = 0; j < 3; j++) {
-                game.getBoard()[i][j].draw(g);
-            }
+            drawBoard(g, i);
         }
 
         if (game.getGameOver()) {
-            g.setFont(new Font("Arial", Font.BOLD, 20));
-
-            if (game.checkTie()) {
-                g.drawString("It's a Tie", 140, 400);
-            }
-            else {
-                g.drawString(game.getWinner() + " WINS", 140, 400);
-            }
+            printWinner(g);
         }
+    }
 
+    public void drawNumbers(Graphics g, int i) {
+        g.setColor(Color.red);
+        g.drawString(Integer.toString(i), (i + 1) * 50 + 120, 130);
+        g.drawString(Integer.toString(i), 130, (i + 1) * 50 + 120);
+    }
+
+    public void drawBoard(Graphics g, int i) {
+        g.setColor(Color.black);
+        for (int j = 0; j < 3; j++) {
+            game.getBoard()[i][j].draw(g);
+        }
+    }
+
+    public void printWinner(Graphics g) {
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+
+        if (game.checkTie()) {
+            g.drawString("It's a Tie", 140, 400);
+        }
+        else {
+            g.drawString(game.getWinner() + " WINS", 140, 400);
+        }
     }
 }
