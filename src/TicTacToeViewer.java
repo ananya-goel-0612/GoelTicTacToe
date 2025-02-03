@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TicTacToeViewer extends JFrame{
-    // TODO: Complete this class
     private final int WINDOW_WIDTH = 450;
     private final int WINDOW_HEIGHT = 500;
     private final int TITLE_BAR_HEIGHT = 23;
@@ -11,7 +10,6 @@ public class TicTacToeViewer extends JFrame{
     private final Image[] images;
 
     public TicTacToeViewer(TicTacToe game) {
-        // TODO: Initialize instance variables
         this.game = game;
 
         images = new Image[2];
