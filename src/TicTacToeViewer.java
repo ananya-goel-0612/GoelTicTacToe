@@ -1,4 +1,4 @@
-// The frontend for TicTacToe.java\
+// The frontend for TicTacToe.java
 // Handles all the drawing/painting of the game
 
 import javax.swing.*;
