@@ -56,7 +56,7 @@ public class TicTacToeViewer extends JFrame{
     // Draws the row/col numbers in pairs (i.e. 0 and 0, 1 and 1, 2 and 2)
     public void drawSideNumbers(Graphics g, int i) {
         g.setColor(Color.red);
-        int side_coordinate = (i + 1) * Square.BOX_WIDTH + (NUM_COORDINATE - 10);
+        int side_coordinate = (i + 1) * Square.BOX_WIDTH + NUM_COORDINATE;
 
         g.drawString(Integer.toString(i), side_coordinate, NUM_COORDINATE);
         g.drawString(Integer.toString(i), NUM_COORDINATE, side_coordinate);
