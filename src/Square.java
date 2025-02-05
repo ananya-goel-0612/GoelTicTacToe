@@ -78,18 +78,21 @@ public class Square {
     }
 
     public void draw(Graphics g) {
+        // Sets the coordinates for where the boxes should start being drawn at
         int box_x = (col + 1) * BOX_WIDTH + OFFSET;
         int box_y = (row + 1) * BOX_LENGTH + OFFSET;
 
-
+        // Fills the square with green if the board has been won
         if (this.isWinningSquare){
             g.setColor(Color.green);
             g.fillRect(box_x, box_y, BOX_WIDTH, BOX_LENGTH);
             g.setColor(Color.black);
         }
 
+        // Draws the border of the box
         g.drawRect(box_x, box_y, BOX_WIDTH,BOX_LENGTH);
 
+        // Draws either an X or O
         if (this.marker.equals("X")){
             g.drawImage(X, box_x, box_y,BOX_WIDTH,BOX_LENGTH, window);
         }
