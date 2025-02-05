@@ -50,6 +50,7 @@ public class TicTacToeViewer extends JFrame{
 
         g.drawString(Integer.toString(i), side_coordinate, NUM_COORDINATE);
         g.drawString(Integer.toString(i), NUM_COORDINATE, side_coordinate);
+
     }
 
     public void drawRow(Graphics g, int i) {
