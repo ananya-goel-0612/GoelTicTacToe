@@ -8,6 +8,10 @@ public class TicTacToeViewer extends JFrame{
     private final TicTacToe game;
 
     private final Image[] images;
+    public static final int WIN_X = 140;
+    public static final int WIN_Y = 400;
+
+    public static final int NUM_COORDINATE = 130;
 
     public TicTacToeViewer(TicTacToe game) {
         this.game = game;
@@ -31,8 +35,8 @@ public class TicTacToeViewer extends JFrame{
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         for (int i = 0; i < 3; i++) {
-            drawNumbers(g, i);
-            drawBoard(g, i);
+            drawSideNumbers(g, i);
+            drawRow(g, i);
         }
 
         if (game.getGameOver()) {
@@ -40,13 +44,15 @@ public class TicTacToeViewer extends JFrame{
         }
     }
 
-    public void drawNumbers(Graphics g, int i) {
+    public void drawSideNumbers(Graphics g, int i) {
         g.setColor(Color.red);
-        g.drawString(Integer.toString(i), (i + 1) * 50 + 120, 130);
-        g.drawString(Integer.toString(i), 130, (i + 1) * 50 + 120);
+        int side_coordinate = (i + 1) * Square.BOX_WIDTH + (NUM_COORDINATE - 10);
+
+        g.drawString(Integer.toString(i), side_coordinate, NUM_COORDINATE);
+        g.drawString(Integer.toString(i), NUM_COORDINATE, side_coordinate);
     }
 
-    public void drawBoard(Graphics g, int i) {
+    public void drawRow(Graphics g, int i) {
         g.setColor(Color.black);
         for (int j = 0; j < 3; j++) {
             game.getBoard()[i][j].draw(g);
@@ -57,10 +63,10 @@ public class TicTacToeViewer extends JFrame{
         g.setFont(new Font("Arial", Font.BOLD, 20));
 
         if (game.checkTie()) {
-            g.drawString("It's a Tie", 140, 400);
+            g.drawString("It's a Tie", WIN_X, WIN_Y);
         }
         else {
-            g.drawString(game.getWinner() + " WINS", 140, 400);
+            g.drawString(game.getWinner() + " WINS", WIN_X, WIN_Y);
         }
     }
 }

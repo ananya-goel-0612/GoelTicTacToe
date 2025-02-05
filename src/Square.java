@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -25,8 +24,10 @@ public class Square {
     private Image X;
     private Image O;
 
-    private final int BOX_LENGTH;
-    private final int BOX_WIDTH;
+    public static final int BOX_LENGTH = 50;
+    public static final int BOX_WIDTH = 50;
+
+    public static final int OFFSET = 100;
 
     private Image[] images;
 
@@ -41,9 +42,8 @@ public class Square {
         this.col = col;
         this.window = window;
         this.images = window.getImages();
-
-        this.BOX_LENGTH = (col + 1) * 50 + 100;
-        this.BOX_WIDTH = (row + 1) * 50 + 100;
+        Image X = images[0];
+        Image O = images[1];
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
@@ -78,19 +78,23 @@ public class Square {
     }
 
     public void draw(Graphics g) {
-        g.drawRect(BOX_LENGTH, BOX_WIDTH, 50,50);
+        int box_x = (col + 1) * BOX_WIDTH + OFFSET;
+        int box_y = (row + 1) * BOX_LENGTH + OFFSET;
+
 
         if (this.isWinningSquare){
             g.setColor(Color.green);
-            g.fillRect(BOX_LENGTH + 1, BOX_WIDTH + 1, 49,49);
+            g.fillRect(box_x, box_y, BOX_WIDTH, BOX_LENGTH);
             g.setColor(Color.black);
         }
 
+        g.drawRect(box_x, box_y, BOX_WIDTH,BOX_LENGTH);
+
         if (this.marker.equals("X")){
-            g.drawImage(images[0], BOX_LENGTH, BOX_WIDTH,50,50, window);
+            g.drawImage(X, box_x, box_y,BOX_WIDTH,BOX_LENGTH, window);
         }
         else if (this.marker.equals("O")){
-            g.drawImage(images[1], BOX_LENGTH, BOX_WIDTH,50,50, window);
+            g.drawImage(O, box_x, box_y,BOX_WIDTH,BOX_LENGTH, window);
         }
     }
 }
